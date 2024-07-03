@@ -1,0 +1,8 @@
+﻿Library
+Logs
+Temp
+UserSettings
+.idea
+obj
+*.sln
+*.csproj
