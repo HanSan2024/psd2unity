@@ -119,8 +119,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 801, y: 4}
-    spritePosition: {x: 167, y: 126}
-  - name: layer2
+    spritePosition: {x: 195, y: 112}
+  - name: monster
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -129,9 +129,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 240
-      width: 316
+      width: 320
       height: 228
-    spriteID: c6bd2debcb74e7345b6970537f8a499a
+    spriteID: bcb91479fe518bc40abc7dc49174f5be
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 240}
-    spritePosition: {x: 381, y: 0}
+    spritePosition: {x: 394, y: 0}
   - name: background
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -247,12 +247,12 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: layer2
-    spriteName: layer2
+  - name: monster
+    spriteName: monster
     isGroup: 0
     parentIndex: -1
-    spriteID: c6bd2debcb74e7345b6970537f8a499a
-    layerID: 34
+    spriteID: bcb91479fe518bc40abc7dc49174f5be
+    layerID: 37
     mosaicPosition: {x: 4, y: 240}
     flatten: 0
     isImported: 1
