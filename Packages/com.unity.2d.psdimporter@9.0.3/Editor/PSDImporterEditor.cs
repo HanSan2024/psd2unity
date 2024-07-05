@@ -936,7 +936,7 @@ namespace UnityEditor.U2D.PSD
             DoOpenSpriteEditorButton();
         }
 
-        void DoSpriteInspector()
+        internal virtual void DoSpriteInspector()
         {
             if (m_EditorFoldOutState.DoLayerImportUI(styles.layerImportHeaderText))
             {

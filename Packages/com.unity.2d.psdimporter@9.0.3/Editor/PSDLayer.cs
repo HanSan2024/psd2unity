@@ -1,4 +1,5 @@
 using System;
+using PDNWrapper;
 using Unity.Collections;
 using UnityEngine;
 
@@ -65,6 +66,7 @@ namespace UnityEditor.U2D.PSD
             width = layer.width;
             height = layer.height;
             texture = layer.texture;
+            bitmapLayer = layer.bitmapLayer;
         }
 
         public bool isVisible => m_IsVisible;
@@ -78,6 +80,7 @@ namespace UnityEditor.U2D.PSD
         public GUID spriteID  { get { return new GUID(m_SpriteID); } set { m_SpriteID = value.ToString(); } }
         public Vector2 layerPosition { get => m_LayerPosition; set => m_LayerPosition = value; }
         public GameObject gameObject { get { return m_GameObject; } set { m_GameObject = value; } }
+        public BitmapLayer bitmapLayer { get; set; }
 
         public bool flatten
         {

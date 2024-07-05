@@ -109,7 +109,8 @@ namespace PaintDotNet.Data.PhotoshopFileType
         {
             psdLayer.CreateMissingChannels();
             
-            pdnLayer = new BitmapLayer(psdLayer.Rect);
+            // pdnLayer = new BitmapLayer(psdLayer.Rect);
+            pdnLayer = new BitmapLayer(psdLayer);
             pdnLayer.Name = psdLayer.Name;
             pdnLayer.Opacity = psdLayer.Opacity;
             pdnLayer.Visible = psdLayer.Visible;

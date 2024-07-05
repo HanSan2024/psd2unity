@@ -25,6 +25,8 @@ namespace PDNWrapper
         public Rectangle localRect { get; }
 
         readonly List<BitmapLayer> m_ChildLayers;
+        public PhotoshopFile.Layer PsdLayer { get; }
+        public BitmapLayer(PhotoshopFile.Layer layer) : this(layer.Rect) { PsdLayer = layer; }
 
         public void Dispose()
         {

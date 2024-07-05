@@ -186,6 +186,7 @@ namespace UnityEditor.U2D.PSD
 
                 var extractedLayer = new PSDLayer(surface, parentGroupIndex, bitmapLayer.IsGroup, bitmapLayer.Name, layerRect.width, layerRect.height, bitmapLayer.LayerID, bitmapLayer.Visible)
                 {
+                    bitmapLayer = inputLayer.bitmapLayer,
                     spriteID = inputLayer.importSetting.spriteId,
                     flatten = bitmapLayer.IsGroup && inputLayer.importSetting.flatten,
                     layerPosition = bitmapLayer.IsGroup ? Vector2.zero : layerRect.position

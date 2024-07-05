@@ -10,7 +10,10 @@
         "Unity.2D.Sprite.Editor",
         "Unity.Mathematics",
         "Unity.Burst",
-        "Unity.InternalAPIEngineBridge.001"
+        "Unity.InternalAPIEngineBridge.001",
+        "Unity.TextMeshPro",
+        "Unity.TextMeshPro.Editor",
+        "Unity.2D.Psdimporter.Runtime"
     ],
     "includePlatforms": [
         "Editor"

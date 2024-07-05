@@ -133,9 +133,9 @@ namespace UnityEditor.U2D.PSD
         [SerializeField]
         bool m_CharacterMode = true;
         [SerializeField]
-        Vector2 m_DocumentPivot = Vector2.zero;
+        internal Vector2 m_DocumentPivot = Vector2.zero;
         [SerializeField]
-        SpriteAlignment m_DocumentAlignment = SpriteAlignment.BottomCenter;
+        internal SpriteAlignment m_DocumentAlignment = SpriteAlignment.BottomCenter;
         [SerializeField]
         bool m_ImportHiddenLayers = false;
         [SerializeField]
@@ -261,9 +261,9 @@ namespace UnityEditor.U2D.PSD
 
         bool shouldProduceGameObject => m_CharacterMode && m_MosaicLayers && spriteImportModeToUse == SpriteImportMode.Multiple;
         bool shouldResliceFromLayer => m_ResliceFromLayer && m_MosaicLayers && spriteImportModeToUse == SpriteImportMode.Multiple;
-        bool inCharacterMode => inMosaicMode && m_CharacterMode;
+        internal bool inCharacterMode => inMosaicMode && m_CharacterMode;
 
-        float definitionScale
+        internal float definitionScale
         {
             get
             {
@@ -957,7 +957,7 @@ namespace UnityEditor.U2D.PSD
 #endif
         }
 
-        void BuildGroupGameObject(List<PSDLayer> psdGroup, int index, Transform root)
+        internal virtual void BuildGroupGameObject(List<PSDLayer> psdGroup, int index, Transform root)
         {
             var psdData = psdGroup[index];
             if (psdData.gameObject == null)
@@ -1016,7 +1016,7 @@ namespace UnityEditor.U2D.PSD
             };
         }
 
-        BoneGO[] CreateBonesGO(Transform root)
+        internal BoneGO[] CreateBonesGO(Transform root)
         {
 #if ENABLE_2D_ANIMATION
             if (inCharacterMode)
@@ -1037,7 +1037,7 @@ namespace UnityEditor.U2D.PSD
             return new BoneGO[0];
         }
 
-        void GetSpriteLibLabel(string spriteId, out string category, out string label)
+        internal void GetSpriteLibLabel(string spriteId, out string category, out string label)
         {
             category = "";
             label = "";
@@ -1132,7 +1132,7 @@ namespace UnityEditor.U2D.PSD
             return m_PlatformSettings.ToArray();
         }
 
-        GameObject OnProducePrefab(AssetImportContext ctx, string assetname, Sprite[] sprites)
+        internal virtual GameObject OnProducePrefab(AssetImportContext ctx, string assetname, Sprite[] sprites)
         {
             GameObject root = null;
             if (sprites != null && sprites.Length > 0)
@@ -1269,7 +1269,7 @@ namespace UnityEditor.U2D.PSD
 
         internal List<PSDLayer> GetPSDLayers() => m_PsdLayers;
 
-        List<SpriteMetaData> GetSpriteImportData()
+        internal List<SpriteMetaData> GetSpriteImportData()
         {
             if (spriteImportModeToUse == SpriteImportMode.Multiple)
             {
