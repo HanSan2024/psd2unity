@@ -1,3 +1,8 @@
+>>>>>>> How to Use
+    1. Clone Repository
+    2. Copy the folder "Packages/com.unity.2d.psdimporter@9.0.3" To your project
+    3. Add Star
+
 ![image](https://github.com/ArcfuryHan/psd2unity/assets/29817119/70c870ab-7ee9-4a10-9b29-bac71cac3bf5)
 
 
