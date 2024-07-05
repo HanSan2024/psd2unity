@@ -1,5 +1,9 @@
 How to Use
 
+    1、克隆仓库
+    2、将"Packages/com.unity.2d.psdimporter@9.0.3"文件夹复制到你的项目中
+    3、请给仓库加个星
+    
     1. Clone Repository
     2. Copy the folder "Packages/com.unity.2d.psdimporter@9.0.3" To your project
     3. Add Star
