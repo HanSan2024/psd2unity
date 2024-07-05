@@ -45,8 +45,6 @@ namespace UnityEditor.U2D.PSD
             var psdData = psdGroup[index];
             if (psdData.gameObject != null)
             {
-                psdData.gameObject.transform.SetParent(root);
-                // psdData.gameObject.transform.SetSiblingIndex(root.childCount-1);
                 psdData.gameObject.transform.SetAsFirstSibling();
             }
         }
@@ -200,10 +198,10 @@ namespace UnityEditor.U2D.PSD
                 var tmp = GetOrAddComponent<TextMeshProUGUI>(obj);
                 tmp.text = td.text;
                 tmp.fontSize = td.fontSize;
-                tmp.color = new Color(td.color.r, td.color.g, td.color.b, td.color.r * layer.bitmapLayer.Opacity);
+                tmp.color = new Color(td.color.r, td.color.g, td.color.b, td.color.a * layer.bitmapLayer.Opacity);
                 tmp.fontStyle = td.fontStyles;
                 tmp.alignment = td.aligment;
-                tmp.textWrappingMode = TextWrappingModes.NoWrap;
+                tmp.textWrappingMode = TextWrappingModes.PreserveWhitespaceNoWrap;
 
                 var tfs = ttos.Transform;
                 var matrix = new Matrix3x3((float)tfs[0], -(float)tfs[1], 0, -(float)tfs[2], (float)tfs[3], 0, 0, 0, 1);
