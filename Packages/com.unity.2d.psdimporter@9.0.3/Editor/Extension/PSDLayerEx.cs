@@ -20,6 +20,7 @@ public static class PSDLayerEx
         public Color color;
         public FontStyles fontStyles;
         public TextAlignmentOptions aligment;
+        public bool paragraph;
         public Vector4 margins;
         public float characterSpacing;
         public float lineSpacing;
@@ -48,6 +49,7 @@ public static class PSDLayerEx
             {
                 var td = new LayerTextData();
                 var engineData = ttos.TextData.EngineData;
+                // Debug.Log(engineData);
                 var engineDict = engineData["EngineDict"];
                 td.text = engineDict["Editor"]["Text"].textValue.Trim();
                 var styleSheetData = engineDict["StyleRun"]["RunArray"][0]["StyleSheet"]["StyleSheetData"];
@@ -60,7 +62,7 @@ public static class PSDLayerEx
                 var italic = styleSheetData["FauxItalic"]?.boolValue ?? false;
                 var underline = styleSheetData["Underline"]?.boolValue ?? false;
                 var strikethrough = styleSheetData["Strikethrough"]?.boolValue ?? false;
-                var fontcaps = styleSheetData["FontCaps"]?.intValue ?? 0; // 2全大写  1选小写  0正常
+                var fontcaps = styleSheetData["FontCaps"]?.intValue ?? 0; // 2全大写  1全小写  0正常
                 var fcase = fontcaps switch
                 {
                     1 => FontStyles.LowerCase,
@@ -74,13 +76,16 @@ public static class PSDLayerEx
                 styles |= fcase;
                 td.fontStyles = styles;
 
+                var paragraph = engineDict["Rendered"]["Shapes"]["Children"][0]["ShapeType"].intValue == 1;
+                td.paragraph = paragraph;
+                
                 var paragraphSheet = engineDict["ParagraphRun"]["RunArray"][0]["ParagraphSheet"]["Properties"];
                 var aligment = paragraphSheet["Justification"]?.intValue ?? 0;
                 td.aligment = aligment switch
                 {
-                    0 => TextAlignmentOptions.MidlineLeft,
-                    1 => TextAlignmentOptions.MidlineRight,
-                    2 => TextAlignmentOptions.Midline,
+                    0 => paragraph ? TextAlignmentOptions.TopLeft : TextAlignmentOptions.MidlineLeft,
+                    1 => paragraph ? TextAlignmentOptions.TopRight : TextAlignmentOptions.MidlineRight,
+                    2 => paragraph ? TextAlignmentOptions.Top : TextAlignmentOptions.Midline,
                     3 => TextAlignmentOptions.TopLeft,
                     4 => TextAlignmentOptions.TopRight,
                     5 => TextAlignmentOptions.Top,

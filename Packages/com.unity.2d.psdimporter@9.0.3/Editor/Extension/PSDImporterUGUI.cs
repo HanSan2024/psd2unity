@@ -201,7 +201,7 @@ namespace UnityEditor.U2D.PSD
                 tmp.color = new Color(td.color.r, td.color.g, td.color.b, td.color.a * layer.bitmapLayer.Opacity);
                 tmp.fontStyle = td.fontStyles;
                 tmp.alignment = td.aligment;
-                tmp.textWrappingMode = TextWrappingModes.PreserveWhitespaceNoWrap;
+                tmp.textWrappingMode = td.paragraph ? TextWrappingModes.Normal : TextWrappingModes.NoWrap;
 
                 var tfs = ttos.Transform;
                 var matrix = new Matrix3x3((float)tfs[0], -(float)tfs[1], 0, -(float)tfs[2], (float)tfs[3], 0, 0, 0, 1);

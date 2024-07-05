@@ -50,6 +50,43 @@ public class EngineDataNode
             return null;
         }
     }
+
+
+    public override string ToString()
+    {
+        if (number != null)
+            return number.Value.ToString(CultureInfo.InvariantCulture);
+        else if (text != null)
+            return $"\"{text.Replace("\n", "")}\"";
+        else if (boolean != null)
+            return $"{boolean.Value.ToString().ToLower()}";
+        else if (array != null)
+        {
+            var sb = new StringBuilder();
+            sb.Append('[');
+            for (int i = 0; i < array.Count; i++)
+            {
+                sb.Append($"{array[i]}{(i == array.Count - 1 ? "" : ", ")}");
+            }
+            sb.Append(']');
+            return sb.ToString();
+        }
+        else if (dict != null)
+        {
+            var sb = new StringBuilder();
+            sb.Append('{');
+            int i = 0, count = dict.Count;
+            foreach (var pair in dict)
+            {
+                sb.Append($"\"{pair.Key}\" : {pair.Value} {(i == dict.Count - 1 ? "" : ", ")}");
+                i++;
+            }
+            sb.Append('}');
+            return sb.ToString();
+        }
+
+        return "";
+    }
 }
 
 
